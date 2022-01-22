@@ -14,7 +14,7 @@ let error = console.error;
 
 // GET method: Fetch JSON data using AJAX(jQuery) Stations
 function getStations(data, param) {
-  const getStationsUri = 'http://environment.data.gov.uk/flood-monitoring/id/stations?_limit=500';
+  const getStationsUri = 'http://environment.data.gov.uk/flood-monitoring/id/stations?_limit=100';
   $.ajax({
     type : 'GET',
     url : getStationsUri,
@@ -42,7 +42,7 @@ function getStations(data, param) {
 
 
 // GET Station Details on Success- HTTP 200 response
-function getStationDetails(data, id, stationReference, catchmentName, riverName) {
+function getStationDetails(data) {
   const stations = data.items;
   var options = $("#selectStation");
 
@@ -144,6 +144,10 @@ $(function() {
     $('#extractData').show();
     $('#displayMyChart').show();
 
+    // Empty table before fetching
+    $('#time').empty();
+    $('#readings').empty();
+
     var value = $(this).val();
     var counter = 0;
     var num = 1;
@@ -180,16 +184,18 @@ $(function() {
           $('#stationName').empty();
 
           // Display Station ID & Time
-          $('#stationName').html('<td>'+value+'</td>');
-          $('#time').html('<td>'+dateTime+'</td><br>');
-          $('#readings').html('<td>'+readings+'</td>');
+          $('#stationName').html('<th>'+value+'</th>');
+          $('#time').append('<td id="time'+countStr+'">'+dateTime+'</td></br>');
+          $('#readings').append('<td id="readings'+countStr+'">'+readings+'</td></br>');
+          $('#extractData tbody').append(`<tr>${$('#time').append(dateTime+'\n')}</tr></br>`);
+          $('#extractData tbody').append(`<tr>${$('#readings').append(readings+'\n')}</tr></br>`);
 
           countStr++;
           timeStamp.push(dateTime);
           reading.push(readings);
           counter += i;
         }
-        log(timeStamp, reading, value);
+        //log(timeStamp, reading, value);
 
         // Initiate chart function & send params
         renderMyChart(timeStamp, reading, value);
