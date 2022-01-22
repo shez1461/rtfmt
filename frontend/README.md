@@ -15,12 +15,14 @@ sudo apt-get install -y nodejs npx
 ### Setting up environment
 To run this demo you must serve it from a server rather than the file system.
 This demo requires webpack to build and run. To install webpack (and other dependencies) run:
+```sh
 > npm install
-
+```
 To run the demo, install and run Live Server:
+```sh
 > npm install -g live-server
 > npx live-server
-
+```
 Live Server will automatically open a new browser tab on your default web browser at:
 - http://localhost:8080
 
