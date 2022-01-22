@@ -1,6 +1,7 @@
 
 # README - How to execute Frontend - RTFMT Demo tool
-
+![rtfmt-light](https://github.com/shez1461/rtfmt/tree/main/frontend/images/white_rt.png)
+![rtfmt-dark](https://github.com/shez1461/rtfmt/tree/main/frontend/images/dark_rt.png)
 
 Folders:
 ```
