@@ -24,21 +24,21 @@ Install all the dependencies required for each component.
 To run, you must serve the following in order:
 
 1. Read the README.md file in folder - `frontend/`:
-`sh
+`
 > cd frontend/
 > cat README.md
 `
 
 2. In the root folder of `/frontend/`.
 Run:
-`sh
+`
 > npx live-server
 `
 
 To view the Frontend UI, open your preferred browser:
 Note: Port [:8080]
 
-`sh
+`
 "http://localhost:8080/"
 `
 
