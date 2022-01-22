@@ -1,0 +1,12 @@
+{
+  "name": "evonetix",
+  "version": "1.0.0",
+  "author": "Mohamed Shez",
+  "main": "js/app.js",
+  "types": "ts/app.d.ts",
+  "private": true,
+  "license": "MIT License",
+  "dependencies": {
+    "chart.js": "^3.6.2"
+  }
+}

@@ -1,0 +1,248 @@
+/* ----------------------------- */
+/* Custom demo css theme - M.Shez
+/* ----------------------------- */
+
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fonts/Ubuntu/ubuntu-regular-webfont.eot');
+  src: url('../fonts/Ubuntu/ubuntu-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Ubuntu/ubuntu-regular-webfont.woff') format('woff'),
+    url('../fonts/Ubuntu/ubuntu-regular-webfont.ttf') format('truetype'),
+    url('../fonts/Ubuntu/ubuntu-regular-webfont.svg#UbuntuRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fonts/Ubuntu/ubuntu-bold-webfont.eot');
+  src: url('../fonts/Ubuntu/ubuntu-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Ubuntu/ubuntu-bold-webfont.woff') format('woff'),
+    url('../fonts/Ubuntu/ubuntu-bold-webfont.ttf') format('truetype'),
+    url('../fonts/Ubuntu/ubuntu-bold-webfont.svg#UbuntuBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: local('Ubuntu-Regular.ttf'), url('../fonts/Ubuntu/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Ubuntu-Bold.ttf'), url('../fonts/Ubuntu/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: local('Ubuntu-Regular.ttf'), url('../fonts/Ubuntu/Ubuntu-Regular.ttf');
+}
+
+:root {
+  --primary-color: #2db2ff;
+  --secondary-color: #536390;
+  --font-color: #424242;
+  --bg-color: #e6e6e6;
+  --heading-color: #292922;
+}
+
+[data-theme=dark] {
+  --primary-color: #9a97f3;
+  --secondary-color: #d1d1d1;
+  --font-color: #e5e5ee;
+  --bg-color: #212529;
+  --heading-color: #d1d5e0;
+}
+
+html {
+  font-family: "Ubuntu";
+}
+
+body {
+  font-family: "Ubuntu";
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}
+
+.header {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  padding: 2px;
+  font-size: 1rem;
+}
+
+.main {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}
+
+select {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  font-size: 1rem;
+}
+
+span.input-group-text {
+  background-color: var(--bg-color);
+  color: var(--heading-color);
+}
+
+input {
+  background-color: var(--bg-color);
+  color: var(--heading-color);
+}
+
+.footer {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* Chart */
+.keylinesChart {
+  min-width: 100%;
+  min-height: 720px;
+  text-align: center;
+  padding: 2px;
+  background-color: var(--font-color);
+  border-color: var(--primary-color);
+}
+
+/* ------------------- */ 
+/* Theme slider switch */
+/* ------------------- */
+.flipswitch {
+  text-align: center;
+  align-items: normal;
+  position: relative;
+}
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch-wrapper em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #aaa;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.5s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Back to Top button */
+#search:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+#setRange:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+#button {
+  display: inline-block;
+  background-color: #0D6EFD;
+  width: 25px;
+  height: 50px;
+  text-align: center;
+  border-radius: 15px;
+  position: fixed;
+  bottom: 1px;
+  right: 1px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#button::after .icon {
+  margin-right: 10px;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styles for the content section */
+@media (min-width: 500px) {
+  #button {
+    margin: 30px;
+  }
+}
