@@ -189,10 +189,10 @@ $(function() {
 
             // Display Station ID & Time
             $('#stationName').html('<th>'+value+'</th>');
-            $('#time').append('<td id="time'+countStr+'">'+dateTime+'</td></br>');
-            $('#readings').append('<td id="readings'+countStr+'">'+readings+'</td></br>');
-            $('#extractData tbody').append(`<tr>${$('#time').append(dateTime+'\n')}</tr></br>`);
-            $('#extractData tbody').append(`<tr>${$('#readings').append(readings+'\n')}</tr></br>`);
+            $('#time').append('<td></td>');
+            $('#readings').append('<td></td>');
+            $('#extractData tbody').append(`<tr>${$('#time').append(dateTime)}</tr></br>`);
+            $('#extractData tbody').append(`<tr>${$('#readings').append(readings)}</tr></br>`);
 
             countStr++;
             timeStamp.push(dateTime);

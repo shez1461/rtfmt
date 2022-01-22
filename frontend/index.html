@@ -55,14 +55,16 @@
           <div class="row">
             <div class="col-auto">
               <div class="input-group input-group-lg">
-                <!-- Input Range field -->
+                <!-- Input Range field 
                 <label for="setRange" class="form-label">Set Limit the range of Stations</label>
                 <input id="setRange" type="range" class="form-range" min="0" max="4999" disabled/>
+                -->
 
-                <!-- Search - by limiting the stations by query -->
+                <!-- Search - by limiting the stations by query 
                 <div class="input-group input-group-md">
                   <button id="search" class="btn btn-primary" type="button" disabled>Search</button>
                 </div>
+                -->
 
                 <!-- Select field -->
                 <div class="input-group input-group-lg">
@@ -76,7 +78,7 @@
 
               <!-- Chart.js -->
               <div id="displayMyChart" class="">
-                <h6>Station readings (last 24hrs) using Chart.js</h6>
+                <h6>Station readings in mASD 15-min-interval (last 24hrs) using Chart.js</h6>
                 <canvas id="myChart" width="400" height="400"></canvas>
               </div>
 
@@ -86,17 +88,17 @@
                   <div id="divTable">Associated table:</div>
                   <thead id="tableHeader">
                     <tr>
-                      <th scope="col">Station</th>
-                      <th scope="col">X: Time</th>
-                      <th scope="col">Y: Readings</th>
+                      <th scope="col-auto">Station</th>
+                      <th scope="col-auto">Y: Readings</th>
+                      <th scope="col-auto">X: Time</th>
                     </tr>
                   </thead>
 
                   <tbody id="extractData">
                     <tr>
                       <td id="stationName"></td>
-                      <td id="time"></td>
                       <td id="readings"></td>
+                      <td id="time"></td>
                     </tr>
                   </tbody>
                 </table>
