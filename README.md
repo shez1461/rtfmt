@@ -1,7 +1,7 @@
 
 # README - How to execute Frontend - RTFMT Demo tool
-<img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/white_rt.png" width="100" height="100">
-<img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/dark_rt.png" width="100" height="100">
+<img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/white_rt.png" width="250" height="250">
+<img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/dark_rt.png" width="250" height="250">
 
 Folders:
 ```
