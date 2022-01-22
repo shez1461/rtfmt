@@ -4,7 +4,7 @@
 <img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/dark_rt.png" width="250" height="250">
 
 Folders:
-```
+```sh
 frontend/    # Frontend server uses live-server
 ```
 
@@ -23,22 +23,10 @@ frontend/    # Frontend server uses live-server
 Install all the dependencies required for each component.
 To run, you must serve the following in order:
 
-1. Read the README.md file in folder - `frontend/`:
+1. README.md file inside folder - `frontend/`:
 ```sh
 > cd frontend/
 > cat README.md
-```
-
-2. In the root folder of `/frontend/`.
-Run:
-```sh
-> npx live-server
-```
-
-To view the Frontend UI, open your preferred browser:
-Note: Port [:8080]
-```sh
-> "http://localhost:8080/"
 ```
 
 
