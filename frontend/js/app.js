@@ -144,7 +144,8 @@ $(function() {
     $('#extractData').show();
     $('#displayMyChart').show();
 
-    // Empty table before fetching
+    // Empty table before appending
+    $('#stationName').empty();
     $('#time').empty();
     $('#readings').empty();
 
@@ -160,67 +161,68 @@ $(function() {
     '/readings?';
     var param = 'since='+yesterday;
 
-    $.ajax({
-      type : 'GET',
-      url : getReadingsUrl,
-      crossDomain: true,
-      async: true,
-      cache: true,
-      dataType: 'json',
-      contentType: 'application/json',
-      data: param,
-      success: function(data) {
-        var items = data.items;
-        for (var i in items) {
-          var id = data.items[i]['@id'];
-          var measure = data.items[i]['measure'];
-          var readings = data.items[i]['value'];
-          var dateTime = data.items[i]['dateTime'];
-          var num = 1;
+    if ((value == '0') || (value === 0) || (value == 'N/A')) {
+      // Hide
+      $('#divTable').hide();
+      $('#tableHeader').hide();
+      $('#extractData').hide();
+      $('#displayMyChart').hide();
+    }
+    else {
+      $.ajax({
+        type : 'GET',
+        url : getReadingsUrl,
+        crossDomain: true,
+        async: true,
+        cache: true,
+        dataType: 'json',
+        contentType: 'application/json',
+        data: param,
+        success: function(data) {
+          var items = data.items;
+          for (var i in items) {
+            var id = data.items[i]['@id'];
+            var measure = data.items[i]['measure'];
+            var readings = data.items[i]['value'];
+            var dateTime = data.items[i]['dateTime'];
+            var num = 1;
 
-          //log('\nMeasurement in mASD', '\nReadings: '+value, '\nDateTime: '+dateTime);
+            // Display Station ID & Time
+            $('#stationName').html('<th>'+value+'</th>');
+            $('#time').append('<td id="time'+countStr+'">'+dateTime+'</td></br>');
+            $('#readings').append('<td id="readings'+countStr+'">'+readings+'</td></br>');
+            $('#extractData tbody').append(`<tr>${$('#time').append(dateTime+'\n')}</tr></br>`);
+            $('#extractData tbody').append(`<tr>${$('#readings').append(readings+'\n')}</tr></br>`);
 
-          // Empty before appending
-          $('#stationName').empty();
+            countStr++;
+            timeStamp.push(dateTime);
+            reading.push(readings);
+            counter += i;
+          }
 
-          // Display Station ID & Time
-          $('#stationName').html('<th>'+value+'</th>');
-          $('#time').append('<td id="time'+countStr+'">'+dateTime+'</td></br>');
-          $('#readings').append('<td id="readings'+countStr+'">'+readings+'</td></br>');
-          $('#extractData tbody').append(`<tr>${$('#time').append(dateTime+'\n')}</tr></br>`);
-          $('#extractData tbody').append(`<tr>${$('#readings').append(readings+'\n')}</tr></br>`);
-
-          countStr++;
-          timeStamp.push(dateTime);
-          reading.push(readings);
-          counter += i;
+          // Initiate chart function & send params
+          renderMyChart(timeStamp, reading, value);
+          handleSuccessData(data);
+        },
+        error: function(response) {
+          handleErrorData(response);
         }
-        //log(timeStamp, reading, value);
-
-        // Initiate chart function & send params
-        renderMyChart(timeStamp, reading, value);
-        handleSuccessData(data);
-      },
-      error: function(response) {
-        handleErrorData(response);
-      }
-    });
+      });
+    }
   });
 
 
   // Search/Find Range Button click event
   $('#search').on('click', function() {
     // Native JS Scroll down to end of page
-    /*
     var scrollingElement = (document.scrollingElement || document.body)
     function scrollSmoothToBottom() {
       $(scrollingElement).animate({
         scrollTop: document.body.scrollHeight
       }, 200);
     }
-    */
-    //getStationRange();
-    //scrollSmoothToBottom();
+    //getStationRange(); // ToDo future implementation
+    //scrollSmoothToBottom(); // ToDo future implementation
   });
 
   // Back to Top button
@@ -249,10 +251,10 @@ function renderMyChart(timeStamp, reading, value) {
   const myChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: timeStamp, // Time - x axis
+      labels: timeStamp, // Time - X axis
       datasets: [{
         label: value,
-        data: reading, // Readings in mASD- y axis
+        data: reading, // Readings in mASD- Y axis
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
