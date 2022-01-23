@@ -9,16 +9,11 @@ frontend/    # Frontend server uses live-server
 ```
 
 
-### Initial set up & Environment
+### Initial setup & Environment used
 `OS - Ubuntu 20.04 LTS`
 `Editor - Visual Studio Code`
-`Version: 1.63.2 (user setup)`
-`Commit: 899d46d82c4c95423fb7e10e68eba52050e30ba3`
-`Date: 2021-12-15T09:40:02.816Z`
-`Electron: 13.5.2`
 `Chromium: 91.0.4472.164`
 `Node.js: 14.16.0`
-`V8: 9.1.269.39-electron.0`
 
 Install all the dependencies required for each component.
 To run, you must serve the following in order:
