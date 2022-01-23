@@ -77,6 +77,13 @@ body {
   color: var(--font-color);
 }
 
+table {
+  font-size: 12px;
+}
+tr, th, td {
+  font-size: 12px;
+}
+
 .header {
   background-color: var(--bg-color);
   color: var(--font-color);
