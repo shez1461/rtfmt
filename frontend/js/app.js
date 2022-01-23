@@ -15,8 +15,8 @@ let warn = console.warn;
 let error = console.error;
 
 
-// GET method: Fetch JSON data using AJAX(jQuery), limits to 500 stations
-function getStations(data, param) {
+// GET method: Fetch JSON data using AJAX(jQuery), Temp: limits to 500 stations
+function getStations(data, uri, param) {
   const getStationsUri = 'http://environment.data.gov.uk/flood-monitoring/id/stations?_limit=500';
   $.ajax({
     type : 'GET',
@@ -44,12 +44,11 @@ function getStations(data, param) {
 };
 
 
-// GET Station Details on Success- HTTP 200 response
+// Append Stations in options dropdown list & add N/A text string to empty names
 function getStationDetails(data) {
-  const stations = data.items;
   var options = $("#selectStation");
 
-  $.each(stations, function() {
+  $.each(data.items, function() {
     if ((this.stationReference == null) || (this.stationReference == undefined) ||
       (this.catchmentName == null) || (this.catchmentName == undefined) ||
       (this.stationReference == '') || (this.catchmentName == '')) {
@@ -76,8 +75,8 @@ function handleErrorData(response) {
       statusText = response.statusText;
 
   if ((statusCode === 0) || (statusCode <= 300)) {
-    error('Error:', statusCode, statusText);
-    toastr.error(statusText, statusCode);
+    info('Info:', statusCode, statusText);
+    toastr.info(statusText, statusCode);
     toastr.clear();
   }
   else if (statusCode >= 400) {
@@ -160,7 +159,7 @@ $(function() {
         timeStamp = [],
         reading = [];
 
-    const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000)).toISOString(),
+    const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000)).toISOString(), // 24hrs timestamp
           getReadingsUrl = 'http://environment.data.gov.uk/flood-monitoring/id/stations/'+value+'/readings?',
           param = 'since='+yesterday;
 
@@ -172,6 +171,10 @@ $(function() {
       $('#displayMyChart').hide();
     }
     else {
+      getReadings(data, getReadingsUrl);
+    }
+
+    function getReadings(data, getReadingsUrl) {
       $.ajax({
         type : 'GET',
         url : getReadingsUrl,
