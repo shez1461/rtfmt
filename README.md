@@ -13,14 +13,6 @@ frontend/    # Frontend server uses live-server
 `Editor - Visual Studio Code`
 `Chromium: 91.0.4472.164`
 `Node.js: 14.16.0`
-
-Install all the dependencies required for each component.
-To run, you must serve the following in order:
-
-1. README.md file inside folder - `frontend/`:
-```sh
-> cd frontend/
-> cat README.md
 ```
 
 ## Data from Environment Agency GOV UK
