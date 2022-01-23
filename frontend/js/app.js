@@ -15,9 +15,9 @@ let warn = console.warn;
 let error = console.error;
 
 
-// GET method: Fetch JSON data using AJAX(jQuery), Temp: limits to 500 stations
+// GET method: Fetch JSON data using AJAX(jQuery), Temp: limits to 100 stations
 function getStations(data, uri, param) {
-  const getStationsUri = 'http://environment.data.gov.uk/flood-monitoring/id/stations?_limit=500';
+  const getStationsUri = 'http://environment.data.gov.uk/flood-monitoring/id/stations?_limit=200';
   $.ajax({
     type : 'GET',
     url : getStationsUri,

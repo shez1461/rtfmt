@@ -55,15 +55,17 @@
           <div class="row">
             <div class="col-auto">
               <!-- Select field -->
-              <div class="input-group input-group-lg">
+              <div class="input-group input-group-sm">
                 <label>Select Station: </label>
                 <select id="selectStation" name="group_select">
                   <option value="0">None</option>
                 </select>
               </div>
+            </div>
+            <div class="col-auto">
 
               <!-- Chart.js -->
-              <div id="displayMyChart" class="">
+              <div id="displayMyChart" class="col-auto">
                 <!--mASD - moisture-associated skin damage -->
                 <h6>Station readings in mASD 15-min-interval (last 24hrs) using Chart.js</h6>
                 <canvas id="myChart" width="400" height="400"></canvas>
@@ -71,7 +73,7 @@
             </div>
             <div class="col-auto">
               <!-- Data extracted fields in table-->
-              <div class="">
+              <div class="col-auto">
                 <table class="table table-sm table-bordered table-success">
                   <div id="divTable">Associated table:</div>
                   <thead id="tableHeader">
