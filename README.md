@@ -31,7 +31,7 @@ A tool built using JavaScript/jQuery framework - User interface with an input to
 ```sh
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt update
-sudo apt-get install -y nodejs npx
+sudo apt-get install -y nodejs
 ```
 
 
@@ -43,7 +43,7 @@ This demo requires webpack to build and run. To install webpack (and other depen
 ```
 To run the demo, install and run Live Server:
 ```sh
-> npm install -g live-server
+> npm install live-server
 > npx live-server
 ```
 Live Server will automatically open a new browser tab on your default web browser at:
