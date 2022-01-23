@@ -116,7 +116,7 @@ function toggleTheme() {
     else {
       document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light'); // localStore - light
-    }    
+    }
   }
   // By default set to light theme
   toggleSwitch.addEventListener('change', switchTheme, false);
