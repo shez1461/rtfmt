@@ -1,7 +1,7 @@
 
 # README - RTFMT Demo [Real Time Flood Monitoring Tool]
 ## Data from Environment Agency GOV UK
-Technical interview task - A RTFMT tool built in JavaScript/jQuery framework - User interface with an input to select station, plot (mASD)Readings in a line graph as stated in the test request and display data in associated table.
+Technical interview task - A tool built using JavaScript/jQuery framework - User interface with an input to select station, plot (mASD)Readings in a line graph as stated in the test request and display data in associated table.
 
 
 ### Prerequisites

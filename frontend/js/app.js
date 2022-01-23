@@ -1,9 +1,12 @@
-//
-// app.js
-//
+/*
+ * app.js v0.0.1
+ * Mohamed Shez
+ * (c) 2022 app.js
+ * Released under the MIT License
+ */
 
 
-// Console output
+// Global Console output
 console.log('%c Welcome to Flood Monitoring console', 'font-size: 36px; font-weight: bold');
 let log = console.log;
 let table = console.table;
@@ -12,9 +15,9 @@ let warn = console.warn;
 let error = console.error;
 
 
-// GET method: Fetch JSON data using AJAX(jQuery) Stations
+// GET method: Fetch JSON data using AJAX(jQuery), limits to 500 stations
 function getStations(data, param) {
-  const getStationsUri = 'http://environment.data.gov.uk/flood-monitoring/id/stations?_limit=100';
+  const getStationsUri = 'http://environment.data.gov.uk/flood-monitoring/id/stations?_limit=500';
   $.ajax({
     type : 'GET',
     url : getStationsUri,
@@ -27,10 +30,10 @@ function getStations(data, param) {
     success: function(data) {
       var items = data.items;
       for (var i in items) {
-        var id = data.items[i]['@id'];
-        var stationReference = data.items[i]['stationReference'];
-        var catchmentName = data.items[i]['catchmentName'];
-        var riverName = data.items[i]['riverName'];
+        var id = data.items[i]['@id'],
+            stationReference = data.items[i]['stationReference'],
+            riverName = data.items[i]['riverName'],
+            catchmentName = data.items[i]['catchmentName'];
       }
       getStationDetails(data, id, stationReference, catchmentName, riverName);
     },
@@ -55,14 +58,14 @@ function getStationDetails(data) {
       options.append($("<option />").val(this.stationReference).text(this.catchmentName));
     }
   });
-  toastr.success('GET - Success!');
+  toastr.success('Success!');
   toastr.clear();
 }
 
 
 // Success query handler - HTTP 200 response
 function handleSuccessData(data) {
-  toastr.success('GET - Success!');
+  toastr.success('Success!');
   toastr.clear();
 }
 
@@ -136,7 +139,7 @@ window.onload = function() {
 
 // Button functions
 $(function() {
-  // Select/option Dropdown list click event
+  // Select/Option from dropdown list click event
   $('#selectStation').change(function(data) {
     // Show fields
     $('#divTable').show();
@@ -149,17 +152,17 @@ $(function() {
     $('#time').empty();
     $('#readings').empty();
 
-    var value = $(this).val();
-    var counter = 0;
-    var num = 1;
-    var countStr = num.toString();
-    var timeStamp = [];
-    var reading = [];
-    //const currentDate = new Date().toISOString();
-    const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000)).toISOString();
-    const getReadingsUrl = 'http://environment.data.gov.uk/flood-monitoring/id/stations/'+value+
-    '/readings?';
-    var param = 'since='+yesterday;
+    // Vars
+    var value = $(this).val(),
+        counter = 0,
+        num = 1,
+        countStr = num.toString(),
+        timeStamp = [],
+        reading = [];
+
+    const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000)).toISOString(),
+          getReadingsUrl = 'http://environment.data.gov.uk/flood-monitoring/id/stations/'+value+'/readings?',
+          param = 'since='+yesterday;
 
     if ((value == '0') || (value === 0) || (value == 'N/A')) {
       // Hide
@@ -181,11 +184,8 @@ $(function() {
         success: function(data) {
           var items = data.items;
           for (var i in items) {
-            var id = data.items[i]['@id'];
-            var measure = data.items[i]['measure'];
-            var readings = data.items[i]['value'];
-            var dateTime = data.items[i]['dateTime'];
-            var num = 1;
+            var readings = data.items[i]['value'],
+                dateTime = data.items[i]['dateTime'];
 
             // Display Station ID & Time
             $('#stationName').html('<th>'+value+'</th>');
@@ -209,20 +209,6 @@ $(function() {
         }
       });
     }
-  });
-
-
-  // Search/Find Range Button click event
-  $('#search').on('click', function() {
-    // Native JS Scroll down to end of page
-    var scrollingElement = (document.scrollingElement || document.body)
-    function scrollSmoothToBottom() {
-      $(scrollingElement).animate({
-        scrollTop: document.body.scrollHeight
-      }, 200);
-    }
-    //getStationRange(); // ToDo future implementation
-    //scrollSmoothToBottom(); // ToDo future implementation
   });
 
   // Back to Top button
