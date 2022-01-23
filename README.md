@@ -31,7 +31,7 @@ A tool built using JavaScript/jQuery framework - User interface with an input to
 ```sh
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt update
-sudo apt-get install -y nodejs npx
+sudo apt-get install -y nodejs
 ```
 
 
