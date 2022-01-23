@@ -1,5 +1,5 @@
 
-# README - How to execute Frontend - RTFMT Demo tool
+# Real-Time Floor Monitoring tool - Demo
 <img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/white_rt.png" width="250" height="250">
 <img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/dark_rt.png" width="250" height="250">
 
