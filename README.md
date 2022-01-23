@@ -43,7 +43,7 @@ This demo requires webpack to build and run. To install webpack (and other depen
 ```
 To run the demo, install and run Live Server:
 ```sh
-> npm install -g live-server
+> npm install live-server
 > npx live-server
 ```
 Live Server will automatically open a new browser tab on your default web browser at:
