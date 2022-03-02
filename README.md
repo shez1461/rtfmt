@@ -2,7 +2,7 @@
 # RTFMT Demo [Real Time Flood Monitoring Tool]
 
 Live Demo Available -
-- AWS - [Live Demo Hosted on AWS Instance](http://18.169.158.177/)
+- ~~AWS - [Live Demo Hosted on AWS Instance](http://18.169.158.177/)~~
 
 <img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/white_rt.png" width="250" height="250">
 <img src="https://github.com/shez1461/rtfmt/blob/main/frontend/images/dark_rt.png" width="250" height="250">
