@@ -1,5 +1,5 @@
 
-# README - RTFMT Demo [Real Time Flood Monitoring Tool]
+# RTFMT Demo [Real Time Flood Monitoring Tool]
 
 Live Demo Available -
 - AWS - [Live Demo Hosted on AWS Instance](http://18.169.158.177/)
